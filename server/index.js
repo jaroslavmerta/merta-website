@@ -17,7 +17,7 @@
  * Můžete ho upravovat a používat jak chcete, musíte však zmínit
  * odkaz na http://www.itnetwork.cz
  */
-
+const path = require('path');
 const mongoose = require("mongoose");
 const Joi = require("joi");
 const express = require("express");
