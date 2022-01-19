@@ -1,0 +1,27 @@
+@import "../Fonts/fonts.scss";
+
+.height100{
+    min-height: 100%;
+}
+
+.logo{
+    span{
+        padding: 1em;
+        font-size: 2em;
+        font-family: AveriaSerifLibre-light;
+        display: inline-block;
+    }
+}
+
+.headerHome{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+}

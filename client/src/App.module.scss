@@ -1,0 +1,22 @@
+@import './Colors.module.scss' ;
+
+.appContainer{
+    display: flex;
+    justify-content: center;
+    background-color: $ghostWhite;
+}
+
+.app{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 1000px;
+    background-color: $ghostWhite;
+    min-height: 100vh;
+}
+
+.navBar{
+    order: 1;
+}
+
