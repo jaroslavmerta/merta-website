@@ -35,7 +35,7 @@ require("./cors")(app);
 
 // DB connection ----------------------------------------------------------
 mongoose
-	.connect("mongodb://localhost:27017/mertadb", { useNewUrlParser: true })
+	.connect("mongodb+srv://jaroslav:eff52523@cluster0.pggcl.mongodb.net/test?authSource=admin&replicaSet=atlas-5zpz7q-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true/mertadb", { useNewUrlParser: true })
 	.then(() => console.log("Connected to MongoDB!"))
 	.catch((error) => console.error("Could not connect to MongoDB... ", error));
 // -----------------------------------------------------------------------------
