@@ -22,7 +22,7 @@ const mongoose = require("mongoose");
 const Joi = require("joi");
 const express = require("express");
 const app = express();
-const API_PORT = 5000;
+const API_PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 // Have Node serve the files for our built React app
