@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5000";
+const API_URL = 
+    `https://jaroslavmerta.herokuapp.com/${process.env.PORT}` ||
+    "http://localhost:5000"
+;
 
 export const ApiGet = (url, par) => {
     return axios({ method: "get", url: API_URL + url, params: par })
