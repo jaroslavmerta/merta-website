@@ -1,0 +1,22 @@
+@import '../../../Colors.module.scss' ;
+@import "../../../Fonts/fonts.scss";
+.webPageList{
+    display:flex;
+    flex-direction: column;
+    font-family:Montserrat-Medium;
+    li{
+        
+        a{
+            display:block;
+            color: black;
+            text-decoration: none; /* no underline */
+            font-size: 1.2em;
+            padding:1em;
+          
+        }
+        a:hover{
+            background-color: $niceWhite;
+        }
+
+    }
+}

@@ -51,7 +51,23 @@ const articleSchema = new mongoose.Schema({
 	},
 });
 
+const webPageSchema = new mongoose.Schema({
+	name: String,
+	link: String,
+	techInfo: {
+		backend:String,
+		arch:String,
+		db:String
+	},
+	description: String,
+	dateAdded: {
+		type: Date,
+		default: Date.now,
+	},
+});
+
 const Article = mongoose.model("Article", articleSchema);
+const WebPage = mongoose.model("WebPage", webPageSchema);
 // -----------------------------------------------------------------------------
 
 
@@ -85,6 +101,29 @@ function validateArticle(article, required = true) {
 		biography: article.biography,
 	});
 }
+function validateWebPage(webpage, required = true) {
+	const schema = Joi.object({
+		name: Joi.string().min(3),
+		link: Joi.string().min(3),
+		techInfo: {
+			backend: Joi.string().min(2),
+			arch: Joi.string().min(3),
+			db: Joi.string().min(3),
+		},
+		description: Joi.string().min(10),
+	});
+
+	return schema.validate({
+		name: webpage.name,
+		link: webpage.link,
+		techInfo: {
+			backend: webpage.backend,
+			arch: webpage.arch,
+			db: webpage.db,
+		},
+		description: webpage.description,
+	});
+}
 
 
 
@@ -113,6 +152,27 @@ app.get("/api/article/:id", (req, res) => {
 	});
 });
 
+app.get("/api/webpages", (req, res) => {
+
+	
+	let dbQuery = WebPage.find();
+	dbQuery
+		.then((webpages) => {
+			res.json(webpages);
+		})
+		.catch((err) => {
+			res.status(400).send("Chyba požadavku na webobé stránky!");
+		});
+});
+
+app.get("/api/webpage/:id", (req, res) => {
+	WebPage.findById(req.params.id, (err, webpage) => {
+		// if (err || !result)
+		if (err) res.status(404).send("Webová stránka s daným ID nebyla nalezena.");
+		else res.json(webpage);
+	});
+});
+
 // ---------------------------------------------------------------------------
 
 // POST requests -------------------------------------------------------------
@@ -127,7 +187,21 @@ app.post("/api/article", (req, res) => {
 				res.json(result);
 			})
 			.catch((err) => {
-				res.send("Nepodařilo se uložit osobu!");
+				res.send("Nepodařilo se uložit článek!");
+			});
+	}
+});
+app.post("/api/webPage", (req, res) => {
+	const { error } = validateWebPage(req.body);
+	if (error) {
+		res.status(400).send(error.details[0]);
+	} else {
+		WebPage.create(req.body)
+			.then((result) => {
+				res.json(result);
+			})
+			.catch((err) => {
+				res.send("Nepodařilo se uložit web stránku!");
 			});
 	}
 });
@@ -149,6 +223,20 @@ app.put("/api/article/:id", (req, res) => {
 			});
 	}
 });
+app.put("/api/webpage/:id", (req, res) => {
+	const { error } = validateWebPage(req.body, false);
+	if (error) {
+		res.status(400).send(error.details[0]);
+	} else {
+		WebPage.findByIdAndUpdate(req.params.id, req.body, { new: true })
+			.then((result) => {
+				res.json(result);
+			})
+			.catch((err) => {
+				res.send("Nepodařilo se uložit web stránku!");
+			});
+	}
+});
 // -----------------------------------------------------------------------------
 
 // DELETE requsets ------------------------------------------------------------------
@@ -160,6 +248,16 @@ app.delete("/api/article/:id", (req, res) => {
 		})
 		.catch((err) => {
 			res.send("Nepodařilo se smazat článek!");
+		});
+});
+
+app.delete("/api/webpage/:id", (req, res) => {
+	WebPage.findByIdAndDelete(req.params.id)
+		.then((result) => {
+			res.json(result);
+		})
+		.catch((err) => {
+			res.send("Nepodařilo se smazat web stránku!");
 		});
 });
 // -----------------------------------------------------------------------------

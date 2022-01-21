@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ApiGet } from "../../../common/Api";
 import DateStringFormatter from "../../../common/DateStringFormatter";
 import { useParams } from "react-router";
-import BlogHeader from '../../BlogHeader';
+import SectionHeader from '../../../Header/SectionHeader/SectionHeader';
 import styles from './ArticleDetail.module.scss'
 
 const ArticleDetail = (props) => {
@@ -28,7 +28,9 @@ const ArticleDetail = (props) => {
   return (
 
     <>
-    <BlogHeader />
+    <SectionHeader 
+    title = 'Blog'
+    />
     <div className={styles.articleDetail}>
 
       <h1>{articleNameState}</h1>

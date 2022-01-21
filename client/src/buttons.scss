@@ -1,12 +1,21 @@
 @import './Colors.module.scss' ;
-a{
-    display:block;
-    color: black;
-    text-decoration: none; /* no underline */
-    font-size: 1.2em;
-    padding:1em;
+.ul{
+    display:flex;
+    flex-direction: column;
+    font-family:Montserrat-Medium;
+    li{
+        
+        a{
+            display:block;
+            color: black;
+            text-decoration: none; /* no underline */
+            font-size: 1.2em;
+            padding:1em;
+          
+        }
+        a:hover{
+            background-color: $niceWhite;
+        }
 
-    &:hover{
-        background-color: $niceWhite;
     }
 }

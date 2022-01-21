@@ -22,6 +22,9 @@ import RegisterPage from './auth/Register';
 import ArticleIndex from './Blog/articles/ArticleIndex';
 import ArticleDetail from './Blog/articles/ArticleDetail/ArticleDetail';
 import ArticleForm from './Blog/articles/ArticleForm';
+import WebPageIndex from './WebCreator/webPages/WebPageIndex';
+import WebPageForm from './WebCreator/webPages/WebPageForm';
+import WebPageDetail from './WebCreator/webPages/WebPageDetail/WebPageDetail';
 require('./buttons.scss');
 
 
@@ -54,10 +57,7 @@ const App = () => {
 
   useEffect(() => {
       loadId();
-      if (loggedIn) {
-        console.log('app useEffect started')
-        navigate("/writer");
-      } 
+    
   }, [loggedIn]);
   
   return (
@@ -94,7 +94,12 @@ const App = () => {
         <Route path="/home" element={<Home/>} />
         <Route path="/programmer" element={<Programmer/>} />
         <Route path="/programmer/editor" element={<EditorApp/>} />
-        <Route path="/webmaker" element={<WebCreator/>} />
+
+        <Route path="/webpage/edit/:id" element={<WebPageForm/>} />
+        <Route path="/webpage/show/:id" element={<WebPageDetail/>} />
+        <Route path="/webpage/create" element={<WebPageForm/>} />
+        <Route path="/webmaker" element={<WebPageIndex
+          logged = {loggedIn}/>} />
         <Route path="/writer" element={<ArticleIndex 
           logged = {loggedIn}/>} />
         <Route path="/musicmaker" element={<MusicMaker/>} />

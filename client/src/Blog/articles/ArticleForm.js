@@ -5,7 +5,7 @@ import FlashMessage from '../../common/FlashMessage';
 import InputField from '../../common/InputField';
 import InputCheck from '../../common/InputCheck';
 import { useNavigate, useParams } from "react-router";
-import BlogHeader from '../BlogHeader';
+import SectionHeader from '../../Header/SectionHeader/SectionHeader';
 
 const ArticleForm = (props) => {
     const navigate = useNavigate();
@@ -69,7 +69,9 @@ const ArticleForm = (props) => {
         return (
             
             <div>
-                <BlogHeader/>
+                <SectionHeader
+                title = 'Blog'
+                />
                 <h1>{ id ? 'Upravit' : 'Vytvořit'} článek</h1>
                 <hr />
                 {errorState? <div className='alert alert-danger'>{errorState}</div> : ''}

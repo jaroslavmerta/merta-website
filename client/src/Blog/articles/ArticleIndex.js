@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ApiGet } from '../../common/Api';
 import ArticleList from './ArticleList/ArticleList';
-import BlogHeader from '../BlogHeader';
+import SectionHeader from '../../Header/SectionHeader/SectionHeader';
 
 const ArticleIndex = (props) => {
 
@@ -14,16 +14,16 @@ const ArticleIndex = (props) => {
 
     ApiGet('/api/articles')
     .then((data) => setArticles(data))
-    .catch((err)=>{console.log('žádné články')})
-    
+    .catch((err)=>{console.log('Žádné články', err)})
 
     },[]);
 
   
     return (
         <div>
-           <BlogHeader/>
-            
+           <SectionHeader
+           title = 'Blog'
+           />
 
             <div className="row">
                 <div className="col">
