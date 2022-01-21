@@ -3,7 +3,7 @@
 
 .logo{
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     flex-grow:1;
 
     span{
@@ -27,7 +27,7 @@
     nav{
         display: flex;
         flex-grow:2;
-        align-items: start;
+        align-items: flex-start;
         //margin-bottom: 96px;
         ul{
             display: flex;
@@ -54,10 +54,10 @@
                 }    
 
                 a {
+                    display: block;
                     color: black;
                     text-decoration: none; /* no underline */
                     padding:1.8em 1.5em 1.8em 1.5em;
-                    display: block;
                     border-radius: 5%;
                     flex-grow:1;
                 }

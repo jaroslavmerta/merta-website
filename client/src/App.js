@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  BrowserRouter ,
+
   Route,
   useNavigate,
   Navigate,
@@ -10,7 +10,6 @@ import {
 } from "react-router-dom";
 import Programmer from './Programmer/Programmer';
 import WebCreator from './WebCreator/WebCreator';
-import Writer from './Blog/BlogHeader';
 import MusicMaker from './MusicMaker/MusicMaker';
 import Header from './Header/Header';
 //scss
@@ -23,7 +22,7 @@ import RegisterPage from './auth/Register';
 import ArticleIndex from './Blog/articles/ArticleIndex';
 import ArticleDetail from './Blog/articles/ArticleDetail/ArticleDetail';
 import ArticleForm from './Blog/articles/ArticleForm';
-
+require('./buttons.scss');
 
 
 
@@ -39,7 +38,6 @@ const App = () => {
 
   const loadId = () => {
     const islogin = localStorage.getItem("is-login");
-    console.log(typeof islogin + "___");
    
       setloggedIn(islogin);
       if (islogin === true) {

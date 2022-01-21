@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cross-env NODE_ENV=development node server/index.js",
+    "start": "concurrently \"cross-env NODE_ENV=development\" \" node server/index.js\" \"cd client && npm start\"",
     "deploy": "cross-env NODE_ENV=production node server/index.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
     "react-scripts": "^5.0.0",
     "sass": "^1.49.0"
