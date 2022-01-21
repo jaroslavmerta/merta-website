@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ApiGet } from '../../common/Api';
-import ArticleTable from './ArticleTable/ArticleTable';
+import ArticleList from './ArticleList/ArticleList';
 import BlogHeader from '../BlogHeader';
 
 const ArticleIndex = (props) => {
@@ -27,7 +27,7 @@ const ArticleIndex = (props) => {
 
             <div className="row">
                 <div className="col">
-                    <ArticleTable
+                    <ArticleList
                         logged = {props.logged}
                         items={articleState}
                         label="Počet článků:"
