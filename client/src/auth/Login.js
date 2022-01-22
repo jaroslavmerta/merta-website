@@ -25,7 +25,7 @@ const LoginPage = (props) => {
       .then(function (data) {
         
         if (data.length === 0) {
-          setError(response.message);
+          setError('Žádný uživatel');
           console.log(error);
         } else {
           localStorage.setItem("is-login", true);
