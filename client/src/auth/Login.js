@@ -16,9 +16,12 @@ const LoginPage = (props) => {
     if (passState === "" || emailState === "") {
       alert("Must Fill All Fields!");
     }
-    
+   
 
-      ApiGet("/api/getUser")
+      ApiGet("/api/getUser",{
+        email: emailState,
+        password: passState,
+      })
       .then(function (response) {
         response = response.data;
         var data = response.data;
