@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Navigate, useNavigate, Link } from "react-router-dom";
+import { ApiGet } from './../common/Api';
 
 const LoginPage = (props) => {
   const [loggedIn, setloggedIn] = useState(false);
@@ -15,18 +16,13 @@ const LoginPage = (props) => {
     if (passState === "" || emailState === "") {
       alert("Must Fill All Fields!");
     }
-    //console.log(emailState, passState);
-    axios
-      .get("http://localhost:5000/api/getUser", {
-        params: {
-          email: emailState,
-          password: passState,
-        },
-      })
+    
+
+      ApiGet("/api/getUser")
       .then(function (response) {
         response = response.data;
         var data = response.data;
-        console.log("___", response);
+        
         if (data.length === 0) {
           setError(response.message);
           console.log(error);
@@ -35,7 +31,7 @@ const LoginPage = (props) => {
           const islogin = localStorage.getItem("is-login");
           setloggedIn(islogin);
           if (islogin) {
-            console.log(islogin + "__+++_");
+         
             window.location.href = "/writer";
           } else {
             navigate("/login");
