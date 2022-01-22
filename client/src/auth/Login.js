@@ -22,9 +22,7 @@ const LoginPage = (props) => {
         email: emailState,
         password: passState,
       })
-      .then(function (response) {
-        response = response.data;
-        var data = response.data;
+      .then(function (data) {
         
         if (data.length === 0) {
           setError(response.message);
