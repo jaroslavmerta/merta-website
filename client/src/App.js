@@ -25,6 +25,9 @@ import ArticleForm from './Blog/articles/ArticleForm';
 import WebPageIndex from './WebCreator/webPages/WebPageIndex';
 import WebPageForm from './WebCreator/webPages/WebPageForm';
 import WebPageDetail from './WebCreator/webPages/WebPageDetail/WebPageDetail';
+import ProgramIndex from './Programmer/programs/ProgramIndex';
+import ProgramForm from './Programmer/programs/ProgramForm';
+import ProgramDetail from './Programmer/programs/ProgramDetail/ProgramDetail';
 require('./buttons.scss');
 
 
@@ -92,8 +95,12 @@ const App = () => {
 
         <Route path="/" element={<Navigate replace to="/home" />} />
         <Route path="/home" element={<Home/>} />
-        <Route path="/programmer" element={<Programmer/>} />
-        <Route path="/programmer/editor" element={<EditorApp/>} />
+        <Route path="/programmer" element={<ProgramIndex
+          logged = {loggedIn}/>} />
+        <Route path="/program/edit/:id" element={<ProgramForm/>} />
+        <Route path="/program/show/:id" element={<ProgramDetail/>} />
+        <Route path="/program/create" element={<ProgramForm/>} />
+        {/* <Route path="/programmer/editor" element={<EditorApp/>} /> */}
 
         <Route path="/webpage/edit/:id" element={<WebPageForm/>} />
         <Route path="/webpage/show/:id" element={<WebPageDetail/>} />

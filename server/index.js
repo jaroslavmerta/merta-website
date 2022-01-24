@@ -66,8 +66,24 @@ const webPageSchema = new mongoose.Schema({
 	},
 });
 
+const programSchema = new mongoose.Schema({
+	name: String,
+	link: String,
+	techInfo: {
+		lang:String,
+		
+		db:String
+	},
+	description: String,
+	dateAdded: {
+		type: Date,
+		default: Date.now,
+	},
+});
+
 const Article = mongoose.model("Article", articleSchema);
 const WebPage = mongoose.model("WebPage", webPageSchema);
+const Program = mongoose.model("Program", programSchema);
 // -----------------------------------------------------------------------------
 
 
@@ -124,6 +140,27 @@ function validateWebPage(webpage, required = true) {
 		description: webpage.description,
 	});
 }
+function validateProgram(program, required = true) {
+	const schema = Joi.object({
+		name: Joi.string().min(3),
+		link: Joi.string().min(3),
+		techInfo: {
+			lang: Joi.string().min(2),
+			db: Joi.string().min(3),
+		},
+		description: Joi.string().min(10),
+	});
+
+	return schema.validate({
+		name: program.name,
+		link: program.link,
+		techInfo: {
+			lang: program.lang,
+			db: program.db,
+		},
+		description: program.description,
+	});
+}
 
 
 
@@ -153,8 +190,6 @@ app.get("/api/article/:id", (req, res) => {
 });
 
 app.get("/api/webpages", (req, res) => {
-
-	
 	let dbQuery = WebPage.find();
 	dbQuery
 		.then((webpages) => {
@@ -170,6 +205,25 @@ app.get("/api/webpage/:id", (req, res) => {
 		// if (err || !result)
 		if (err) res.status(404).send("Webová stránka s daným ID nebyla nalezena.");
 		else res.json(webpage);
+	});
+});
+
+app.get("/api/programs", (req, res) => {
+	let dbQuery = Program.find();
+	dbQuery
+		.then((programs) => {
+			res.json(programs);
+		})
+		.catch((err) => {
+			res.status(400).send("Chyba požadavku na programy!");
+		});
+});
+
+app.get("/api/program/:id", (req, res) => {
+	Program.findById(req.params.id, (err, program) => {
+		// if (err || !result)
+		if (err) res.status(404).send("Program s daným ID nebyl nalezen.");
+		else res.json(program);
 	});
 });
 
@@ -205,6 +259,21 @@ app.post("/api/webPage", (req, res) => {
 			});
 	}
 });
+
+app.post("/api/program", (req, res) => {
+	const { error } = validateProgram(req.body);
+	if (error) {
+		res.status(400).send(error.details[0]);
+	} else {
+		Program.create(req.body)
+			.then((result) => {
+				res.json(result);
+			})
+			.catch((err) => {
+				res.send("Nepodařilo se uložit program!");
+			});
+	}
+});
 // -----------------------------------------------------------------------------
 
 // PUT requests ----------------------------------------------------------------
@@ -237,6 +306,20 @@ app.put("/api/webpage/:id", (req, res) => {
 			});
 	}
 });
+app.put("/api/program/:id", (req, res) => {
+	const { error } = validateProgram(req.body, false);
+	if (error) {
+		res.status(400).send(error.details[0]);
+	} else {
+		Program.findByIdAndUpdate(req.params.id, req.body, { new: true })
+			.then((result) => {
+				res.json(result);
+			})
+			.catch((err) => {
+				res.send("Nepodařilo se uložit program!");
+			});
+	}
+});
 // -----------------------------------------------------------------------------
 
 // DELETE requsets ------------------------------------------------------------------
@@ -258,6 +341,16 @@ app.delete("/api/webpage/:id", (req, res) => {
 		})
 		.catch((err) => {
 			res.send("Nepodařilo se smazat web stránku!");
+		});
+});
+
+app.delete("/api/program/:id", (req, res) => {
+	Program.findByIdAndDelete(req.params.id)
+		.then((result) => {
+			res.json(result);
+		})
+		.catch((err) => {
+			res.send("Nepodařilo se smazat program!");
 		});
 });
 // -----------------------------------------------------------------------------

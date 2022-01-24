@@ -41,7 +41,7 @@ const WebPageList = (props) => {
         ))}
       </ul>
     {logged &&
-      <Link to={'/webPage/create'} className="">Nový článek</Link>}
+      <Link to={'/webPage/create'} className="">Nová webová stránka</Link>}
 
     </div>
   );
