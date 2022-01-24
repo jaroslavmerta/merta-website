@@ -42,7 +42,7 @@ const WebPageDetail = (props) => {
     <div className={styles.webPageDetail}>
     
       <h1>{webPageNameState}</h1>
-
+{/* 
       <table>
         <tbody>
           <tr>
@@ -62,13 +62,82 @@ const WebPageDetail = (props) => {
             <td>{webPageDbState}</td>
           </tr>
         </tbody>
-      </table>
-      {/* <ul>
-          <li>Odkaz: <a href={webPageLinkState}>{webPageNameState}</a></li>
-          <li>Backend: {webPageLangState}</li>
-          <li>Architektura: {webPageArchState}</li>
-          <li>Databáze: {webPageDbState}</li>
-      </ul> */}
+      </table> */}
+
+          {/* Mobile view */}
+      <div className={styles.tableBoxSmall}>
+        <div className={styles.tbrWraper}>
+          <div className={styles.tbr}>
+            <div className={styles.tbd}>
+           <h3>Odkaz:&nbsp;&nbsp;</h3>
+            </div>
+            <div className={styles.tbd}>
+             <a href={webPageLinkState}>{webPageLinkState}</a>
+            </div>
+          </div>
+        
+          <div className={styles.tbr}>
+            <div className={styles.tbd}>
+            <h3>Backend:&nbsp;&nbsp;</h3>
+            </div>
+            <div className={styles.tbd}>
+              {webPageLangState}
+            </div>
+          </div>
+          <div className={styles.tbr}>
+            <div className={styles.tbd}>
+            <h3>Architektura:&nbsp;&nbsp;</h3>
+            </div>
+            <div className={styles.tbd}>
+              {webPageArchState}
+            </div>
+          </div>
+          <div className={styles.tbr}>
+            <div className={styles.tbd}>
+            <h3>Databáze:&nbsp;&nbsp;</h3>
+            </div>
+            <div className={styles.tbd}>
+              <p >{webPageDbState}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop view */}
+      <div className={styles.tableBoxBig}>
+        <div className={styles.tbClWraper}>
+            <div className={styles.tbd}>
+           <h3>Odkaz:&nbsp;&nbsp;</h3>
+            </div>
+            <div className={styles.tbd}>
+              <h3>Programovací jazyk:&nbsp;&nbsp;</h3>
+            </div>
+            <div className={styles.tbd}>
+              <h3>Architektura:&nbsp;&nbsp;</h3>
+            </div>
+            <div className={styles.tbd}>
+            <h3>Databáze:&nbsp;&nbsp;</h3>
+            </div>
+        </div>
+        <div className={styles.tbClWraper}>
+            <div className={styles.tbd}>
+            <a href={webPageLinkState}>{webPageLinkState}</a>
+            </div>
+            <div className={styles.tbd}>
+            {webPageLangState}
+            </div>
+            <div className={styles.tbd}>
+            {webPageArchState}
+            </div>
+            <div className={styles.tbd}>
+            {webPageDbState}
+            </div>
+        </div>
+
+      </div>
+
+
+
       <br/>
       <h2>Popis</h2> 
       <p>

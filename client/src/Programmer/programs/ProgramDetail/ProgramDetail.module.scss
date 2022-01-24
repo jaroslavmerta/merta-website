@@ -1,5 +1,6 @@
 @import "../../../Fonts/fonts.scss";
 .programDetail{
+    margin: 0 5px 0 5px;
     h1{
         font-size: 2em;
         font-family: Montserrat-Medium;
@@ -10,15 +11,15 @@
         font-family: Montserrat-Medium;
         padding-top: 1em;
     }
-    p, ul>li, table{
+    p, ul>li, table, .tableBoxSmall, .tableBoxBig{
         font-family: Montserrat-regular;
         font-size: 1.2em;
         line-height: 2em;
         
     }
 
-    table {
-        
+    /* table {
+        overflow-x:auto;
         tr{
             border-bottom: 1px solid black;
         }
@@ -28,7 +29,73 @@
             text-align: right;
         }
         
+    } */
+
+    .tableBoxSmall {
+  
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        .tbrWraper{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            .tbr{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: baseline;
+                justify-content: flex-start;
+                border-bottom: 1px solid black;
+            
+                .tbd:first-child {
+                    font-size: 1.2em;
+                    font-family: Montserrat-Medium;
+                    text-align: right;
+                }
+            }
+        }
     }
 
+    .tableBoxBig {
+        
+        display: flex;
+     
+        //flex-wrap: wrap;
+        align-items: flex-start;
+        .tbClWraper{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        .tbd{
+            display: flex;
+            border-bottom: 1px solid black;
+            
+        }    
+        
+    }
+        .tbClWraper:first-child{
+            .tbd{
+                justify-content: flex-end;
+            }
+        }
+        .tbClWraper:first-child{
+                font-size: 1.2em;
+                font-family: Montserrat-Medium;
+                text-align: right;
+            }
+        
+    }
+
+    @media only screen and (max-width: 390px) {
+        .tableBoxBig{
+            display:none;
+        }
+    }
+    @media only screen and (min-width: 391px) {
+        .tableBoxSmall{
+            display:none;
+        }
+    }
     
 }
