@@ -29,7 +29,7 @@ const ArticleDetail = (props) => {
 
     <>
     <SectionHeader 
-    title = 'Blog'
+    title = 'Blog'  
     />
     <div className={styles.articleDetail}>
 
