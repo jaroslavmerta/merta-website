@@ -77,7 +77,7 @@ const WebPageDetail = (props) => {
         
           <div className={styles.tbr}>
             <div className={styles.tbd}>
-            <h3>Backend:&nbsp;&nbsp;</h3>
+            <h3>Programovací jazyk:&nbsp;&nbsp;</h3>
             </div>
             <div className={styles.tbd}>
               {webPageLangState}
@@ -103,7 +103,7 @@ const WebPageDetail = (props) => {
            <h3>Odkaz:&nbsp;&nbsp;</h3>
             </div>
             <div className={styles.tbd}>
-              <h3>Backend:&nbsp;&nbsp;</h3>
+              <h3>Programovací jazyk:&nbsp;&nbsp;</h3>
             </div>
           
             <div className={styles.tbd}>
