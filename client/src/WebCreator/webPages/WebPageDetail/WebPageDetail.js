@@ -84,12 +84,6 @@ const WebPageDetail = (props) => {
             </div>
           </div>
           <div className={styles.tbr}>
-            <div className={styles.tbd}>
-            <h3>Architektura:&nbsp;&nbsp;</h3>
-            </div>
-            <div className={styles.tbd}>
-              {webPageArchState}
-            </div>
           </div>
           <div className={styles.tbr}>
             <div className={styles.tbd}>
