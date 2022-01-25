@@ -56,7 +56,6 @@ const webPageSchema = new mongoose.Schema({
 	link: String,
 	techInfo: {
 		backend:String,
-		arch:String,
 		db:String
 	},
 	description: String,
@@ -123,7 +122,7 @@ function validateWebPage(webpage, required = true) {
 		link: Joi.string().min(3),
 		techInfo: {
 			backend: Joi.string().min(2),
-			arch: Joi.string().min(3),
+		
 			db: Joi.string().min(3),
 		},
 		description: Joi.string().min(10),
@@ -134,7 +133,7 @@ function validateWebPage(webpage, required = true) {
 		link: webpage.link,
 		techInfo: {
 			backend: webpage.backend,
-			arch: webpage.arch,
+
 			db: webpage.db,
 		},
 		description: webpage.description,

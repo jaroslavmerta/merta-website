@@ -14,7 +14,6 @@ const WebPageForm = (props) => {
     const [webPageLinkState, setWebPageLink] = useState('');
     const [descriptionState, setDescription] = useState('');
     const [webPageLangState, setWebPageLang] = useState('');
-    const [webPageArchState, setWebPageArch] = useState('');
     const [webPageDbState, setWebPageDb] = useState('');
     const [sentState, setSent] = useState(false);
     const [successState, setSuccess] = useState(false);
@@ -31,7 +30,7 @@ const WebPageForm = (props) => {
                 setWebPageName(data.name);
                 setWebPageLink(data.link);
                 setWebPageLang(data.techInfo.backend);
-                setWebPageArch(data.techInfo.arch);
+               
                 setWebPageDb(data.techInfo.db);
                 setDescription(data.description);
             });
@@ -48,7 +47,7 @@ const WebPageForm = (props) => {
             link: webPageLinkState,
             techInfo: {
                 backend: webPageLangState,
-                arch: webPageArchState,
+      
                 db: webPageDbState,
             },
             description: descriptionState,
@@ -139,20 +138,7 @@ const WebPageForm = (props) => {
                         //console.log(webPageNameState);
                         }}
                     />
-                    <InputField
-                        required={true}
-                        type="text"
-                        name="webPageArch"
-                        min="3"
-                        label="Architektura"
-                        prompt="MVC"
-                        value={webPageArchState}
-                        handleChange={(e) => {
-                        const { value } = e.target;
-                        setWebPageArch(value);
-                        //console.log(webPageNameState);
-                        }}
-                    />
+                  
                     <InputField
                         required={true}
                         type="text"

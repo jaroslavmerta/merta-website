@@ -10,7 +10,6 @@ const WebPageDetail = (props) => {
   const [webPageNameState, setWebPageName] = useState("");
   const [descriptionState, setDescriptionState] = useState("");
   const [webPageLangState, setWebPageLang] = useState('');
-  const [webPageArchState, setWebPageArch] = useState('');
   const [webPageDbState, setWebPageDb] = useState('');
   const [webPageLinkState, setWebPageLink] = useState('');
 
@@ -22,7 +21,7 @@ const WebPageDetail = (props) => {
         setWebPageName(data.name);
         setWebPageLink(data.link);
         setWebPageLang(data.techInfo.backend);
-        setWebPageArch(data.techInfo.arch);
+
         setWebPageDb(data.techInfo.db);
         setDescriptionState(data.description);
       })
@@ -110,11 +109,9 @@ const WebPageDetail = (props) => {
            <h3>Odkaz:&nbsp;&nbsp;</h3>
             </div>
             <div className={styles.tbd}>
-              <h3>Programovací jazyk:&nbsp;&nbsp;</h3>
+              <h3>Backend:&nbsp;&nbsp;</h3>
             </div>
-            <div className={styles.tbd}>
-              <h3>Architektura:&nbsp;&nbsp;</h3>
-            </div>
+          
             <div className={styles.tbd}>
             <h3>Databáze:&nbsp;&nbsp;</h3>
             </div>
@@ -126,9 +123,7 @@ const WebPageDetail = (props) => {
             <div className={styles.tbd}>
             {webPageLangState}
             </div>
-            <div className={styles.tbd}>
-            {webPageArchState}
-            </div>
+          
             <div className={styles.tbd}>
             {webPageDbState}
             </div>
