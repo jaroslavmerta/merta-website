@@ -71,7 +71,7 @@ const WebPageDetail = (props) => {
            <h3>Odkaz:&nbsp;&nbsp;</h3>
             </div>
             <div className={styles.tbd}>
-             <a href={webPageLinkState}>{webPageLinkState}</a>
+             <a href={webPageLinkState}>{webPageNameState}</a>
             </div>
           </div>
         
