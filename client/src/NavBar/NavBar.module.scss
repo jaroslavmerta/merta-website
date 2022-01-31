@@ -27,12 +27,48 @@
 
             .fcsMainMenuBttn{
                 background-color: $niceWhite;
+                svg{
+                   /*  fill: rgb(134, 65, 0); */
+                 /*    fill: rgb(160, 38, 7); */
+                }
+               
             }
         }
     }
 
     .wordNav{
         display: none;
+    }
+
+    .clr0{
+        fill: rgb(134, 65, 0);
+    }
+    .clr1{
+        fill: rgb(33, 156, 136);
+    }
+    .clr2{
+        fill: rgb(218, 150, 24);
+    }
+    .clr3{
+        fill: rgb(21, 75, 175);
+    }
+    .clr4{
+        fill: rgb(175, 21, 21);
+    }
+    .clr5{
+        fill: rgb(190, 180, 40);
+    }
+    .clr6{
+        fill: rgb(73, 40, 190);
+    }
+    .clr7{
+        fill: rgb(21, 24, 175);
+    }
+    .clr8{
+        fill: rgb(218, 102, 24);
+    }
+    .clr9{
+        fill: rgb(202, 24, 218);
     }
 }
 
