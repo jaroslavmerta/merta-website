@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import styles from './NavBar.module.scss';
 import headerStyles from '../Header/Header.module.scss'
 const NavBar = (props) => {
-const url = props.url;
+const url = props.urlHome;
     return(
         <div className={url ? styles.homeNav : styles.navBar}>
             {url && 

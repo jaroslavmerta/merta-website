@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { ApiGet } from "../../../common/Api";
-import DateStringFormatter from "../../../common/DateStringFormatter";
 import { useParams } from "react-router";
 
 import styles from './WebPageDetail.module.scss'
@@ -40,7 +39,7 @@ const WebPageDetail = (props) => {
     />
     <div className={styles.webPageDetail}>
     
-      <h1 className="testik">{webPageNameState}</h1>
+      <h1>{webPageNameState}</h1>
 {/* 
       <table>
         <tbody>

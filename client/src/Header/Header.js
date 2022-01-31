@@ -1,22 +1,21 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom'
 //scss
 import styles from './Header.module.scss'
 import NavBar from '../NavBar/NavBar';
 
 const Header = (props) => {
-    const url = props.url;
+    const urlHome = props.urlHome;
 
     return (
-        <header className={ url ? (`${styles.height100} ${styles.headerHome}`) : styles.header} >
+        <header className={ urlHome ? (`${styles.height100} ${styles.headerHome}`) : styles.header} >
             
           
-           {!url && <div className={ styles.logo}>
+           {!urlHome && <div className={ styles.logo}>
                 <span>J. Merta</span>
             </div>}
             
         
-            <NavBar url={url}/>
+            <NavBar urlHome={urlHome}/>
         </header>
     );
 }
