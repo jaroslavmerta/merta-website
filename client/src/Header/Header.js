@@ -15,7 +15,9 @@ const Header = (props) => {
             </div>}
             
         
-            <NavBar urlHome={urlHome}/>
+            <NavBar 
+            url= {props.url}
+            />
         </header>
     );
 }

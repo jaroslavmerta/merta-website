@@ -37,6 +37,8 @@ require('./cssReset.scss');
 const App = () => {
   
   const location = useLocation();
+
+  const url = location.pathname;
   const urlHome = location.pathname === "/home";
 
   const navigate = useNavigate();
@@ -68,7 +70,10 @@ const App = () => {
     <div className={styles.appContainer}>
       <div className={styles.app}>
       
-      { !urlHome && <Header urlHome={urlHome}/>}
+      { !urlHome && <Header
+       urlHome = {urlHome}
+       url = {url}
+       />}
       
       <nav className="">
           {loggedIn &&

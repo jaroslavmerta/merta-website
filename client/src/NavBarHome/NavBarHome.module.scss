@@ -88,8 +88,10 @@
     .homeNav nav ul{
       flex-direction: column;
       li {
+        flex-direction: row;
         padding:1em;    
           a{
+            order: 1;
             padding:1.8em 1.5em 1.8em 1.5em;
           }
       }
