@@ -40,7 +40,7 @@ const WebPageDetail = (props) => {
     />
     <div className={styles.webPageDetail}>
     
-      <h1>{webPageNameState}</h1>
+      <h1 className="testik">{webPageNameState}</h1>
 {/* 
       <table>
         <tbody>
