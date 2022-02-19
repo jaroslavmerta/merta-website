@@ -78,9 +78,9 @@ const App = () => {
       <nav className="">
           {loggedIn &&
            (
-              <ul className="navbar-nav mr-auto">
-                  <li className="nav-item" onClick={logOut}>
-                      <Link to={"#"} className="nav-link">
+              <ul className="">
+                  <li className="" onClick={logOut}>
+                      <Link to={"#"} className="">
                           Odhlásit se
                       </Link>
                   </li>
@@ -91,7 +91,7 @@ const App = () => {
       <Routes>
 
         <Route path="/login" element={<LoginPage/>} />
-        <Route path="/register" element={<RegisterPage/>} />
+       {/*  <Route path="/register" element={<RegisterPage/>} /> */}
 
         
         <Route path="/article/show/:id" element={<ArticleDetail/>} />

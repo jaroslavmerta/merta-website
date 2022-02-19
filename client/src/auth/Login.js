@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { Navigate, useNavigate, Link } from "react-router-dom";
 import { ApiGet } from './../common/Api';
+import styles from './Login.module.scss';
 
 const LoginPage = (props) => {
   const [loggedIn, setloggedIn] = useState(false);
@@ -59,40 +60,33 @@ const LoginPage = (props) => {
     }
   }
   return (
-    <div className="offset-4 col-sm-6 mt-5">
-        <div className="alert alert-info">
-            <span className="pull-left">{error}</span>
-            &nbsp;
-            <Link className="pull-right" to="/register">
-            Nemáš ještě účet? Registruj se!
-            </Link>
-        </div>
+    <div className={styles.container}>
         <form onSubmit={handleSubmit}>
-            <div className="form-group">
-            <label htmlFor="email">E-mail</label>
-            <input
-                required={true}
-                type="email"
-                className="form-control"
-                placeholder="E-mail"
-                name="email"
-                value={emailState}
-                onChange={handleChange}
-            />
+            <div className={styles.tst}>
+              <label htmlFor="email">E-mail&nbsp;</label>
+              <input
+                  required={true}
+                  type="email"
+                  className="form-control"
+                  placeholder="E-mail"
+                  name="email"
+                  value={emailState}
+                  onChange={handleChange}
+              />
             </div>
-            <div className="form-group">
-            <label htmlFor="password">Heslo</label>
-            <input
-                required={true}
-                type="password"
-                className="form-control"
-                placeholder="Heslo"
-                name="password"
-                value={passState}
-                onChange={handleChange}
-            />
+            <div className={styles.tst}>
+              <label htmlFor="password">Heslo</label>
+              <input
+                  required={true}
+                  type="password"
+                  className="form-control"
+                  placeholder="Heslo"
+                  name="password"
+                  value={passState}
+                  onChange={handleChange}
+              />
             </div>
-            <input type="submit" className="btn btn-success mt-2" value="Přihlásit se" />
+            <input type="submit" className="" value="Přihlásit se" />
         </form>
     </div>
   );
