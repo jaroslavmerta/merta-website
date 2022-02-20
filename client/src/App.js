@@ -29,6 +29,7 @@ import ProgramIndex from './Programmer/programs/ProgramIndex';
 import ProgramForm from './Programmer/programs/ProgramForm';
 import ProgramDetail from './Programmer/programs/ProgramDetail/ProgramDetail';
 require('./buttons.scss');
+require('./Colors.scss');
 
 
 
@@ -80,7 +81,7 @@ const App = () => {
            (
               <ul className="">
                   <li className="" onClick={logOut}>
-                      <Link to={"#"} className="">
+                      <Link to={"#"} className="text-danger">
                           Odhlásit se
                       </Link>
                   </li>

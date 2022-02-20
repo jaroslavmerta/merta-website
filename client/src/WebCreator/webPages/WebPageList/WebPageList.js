@@ -23,7 +23,9 @@ const WebPageList = (props) => {
       <p>
         {props.label} {props.items.length}
       </p>}
-      <ul className={styles.webPageList}>
+      <ul>
+        {logged &&
+          <Link to={'/webPage/create'} className="text-edit anch_bttn">Nová webová stránka</Link>}
 
         {props.items.map((item, index) => (
             
@@ -32,16 +34,14 @@ const WebPageList = (props) => {
 
             {logged &&
             <>
-            <Link to={'/webPage/edit/' + item._id} className=""> Upravit </Link>
-            <button onClick={deletee.bind(this, item._id)} className=""> Odstranit </button>
+            <Link to={'/webPage/edit/' + item._id} className="text-edit anch_bttn"> Upravit </Link>
+            <button onClick={deletee.bind(this, item._id)} className="text-danger"> Odstranit </button>
             </>
             }
           
           </li>
         ))}
       </ul>
-    {logged &&
-      <Link to={'/webPage/create'} className="">Nová webová stránka</Link>}
 
     </div>
   );

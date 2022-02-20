@@ -23,7 +23,9 @@ const ArticleList = (props) => {
       <p>
         {props.label} {props.items.length}
       </p>}
-      <ul className={styles.articleList}>
+      <ul >
+        {logged &&
+          <Link to={'/article/create'} className="text-edit anch_bttn">Nový článek</Link>}
 
         {props.items.map((item, index) => (
             
@@ -32,16 +34,14 @@ const ArticleList = (props) => {
 
             {logged &&
             <>
-            <Link to={'/article/edit/' + item._id} className=""> Upravit </Link>
-            <button onClick={deletee.bind(this, item._id)} className=""> Odstranit </button>
+            <Link to={'/article/edit/' + item._id} className="text-edit anch_bttn"> Upravit </Link>
+            <button onClick={deletee.bind(this, item._id)} className="text-danger"> Odstranit </button>
             </>
             }
           
           </li>
         ))}
       </ul>
-    {logged &&
-      <Link to={'/article/create'} className="">Nový článek</Link>}
 
     </div>
   );

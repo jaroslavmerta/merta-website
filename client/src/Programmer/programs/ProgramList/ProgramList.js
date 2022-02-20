@@ -23,7 +23,9 @@ const ProgramList = (props) => {
       <p>
         {props.label} {props.items.length}
       </p>}
-      <ul className={styles.programList}>
+      <ul >
+        {logged &&
+          <Link to={'/program/create'} className="text-edit anch_bttn">Nový program</Link>}
 
         {props.items.map((item, index) => (
             
@@ -32,17 +34,15 @@ const ProgramList = (props) => {
 
             {logged &&
             <>
-            <Link to={'/program/edit/' + item._id} className=""> Upravit </Link>
-            <button onClick={deletee.bind(this, item._id)} className=""> Odstranit </button>
+            <Link to={'/program/edit/' + item._id} className="text-edit anch_bttn"> Upravit </Link>
+            <button onClick={deletee.bind(this, item._id)} className="text-danger"> Odstranit </button>
             </>
             }
           
           </li>
         ))}
-      </ul>
-    {logged &&
-      <Link to={'/program/create'} className="">Nový program</Link>}
 
+      </ul>
     </div>
   );
 };

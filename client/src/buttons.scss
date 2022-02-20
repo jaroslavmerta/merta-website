@@ -1,8 +1,10 @@
-@import './Colors.module.scss' ;
-.ul{
+@import './Colors.scss' ;
+@import './Fonts/fonts.scss' ;
+
+ul{
     display:flex;
     flex-direction: column;
-    font-family:Montserrat-Medium;
+    
     li{
         
         a{
@@ -13,9 +15,29 @@
             padding:1em;
           
         }
+      
         a:hover{
             background-color: $niceWhite;
         }
 
+        
+    }
+}
+
+a.anch_bttn{
+    text-decoration: none;
+}
+a.anch_bttn, button{
+    display: inline;
+    padding:1em;
+    font-size: 1.2em;
+    border: none;
+    background-color: transparent;
+    font-size: 1em;
+    cursor: pointer;
+}   
+a.anch_bttn, button {
+    &:hover{
+        background-color: $niceWhite;
     }
 }

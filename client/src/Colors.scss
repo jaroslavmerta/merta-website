@@ -1,0 +1,16 @@
+$niceWhite: rgb(238, 234, 234);
+$ghostWhite: rgb(248,248,255);
+
+$cBlue:rgb(10, 10, 216);
+$cRed:rgb(216, 10, 10);
+$cGreen:rgb(172, 155, 4);
+
+.text-edit{
+    color: $cBlue
+}
+.text-danger{
+    color: $cRed
+}
+.text-success{
+    color: $cGreen
+}
